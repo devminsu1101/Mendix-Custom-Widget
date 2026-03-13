@@ -10,7 +10,7 @@
   },
   "license": "Apache-2.0",
   "config": {
-    "projectPath": "../../",
+    "projectPath": "C:\\Users\\김민수\\Mendix\\Make Custom Widget-main",
     "mendixHost": "http://localhost:8080",
     "developmentPort": 3000
   },

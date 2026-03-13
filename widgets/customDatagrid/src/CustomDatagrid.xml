@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
-<widget id="mendix.customdatagrid.CustomDatagrid" pluginWidget="true" needsEntityContext="true" offlineCapable="true"
-        supportedPlatform="Web"
-        xmlns="http://www.mendix.com/widget/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd">
-    <name>Custom Datagrid</name>
+<widget 
+    id="mendix.customdatagrid.CustomDatagrid" 
+    pluginWidget="true" 
+    needsEntityContext="true" 
+    offlineCapable="true"
+    supportedPlatform="Web"
+    xmlns="http://www.mendix.com/widget/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd"
+>
+    <name>Custom Datagrid</name> <!-- Studio Pro 위젯 도구 상자에 표시될 이름 -->
     <description>My widget description</description>
+    <studioProCategory>Data Containers</studioProCategory> <!-- Studio Pro Toolbox 내 어느 카테고리에 위치할지 -->
+    <studioCategory>Data Containers</studioCategory>
     <icon/>
     <properties>
-        <propertyGroup caption="General">
-            <property key="sampleText" type="string" required="false">
+        <propertyGroup caption="General"> <!-- 속성창에서 속성들을 그룹화하는 property group -->
+            <property key="sampleText" type="string" required="false"> <!-- 개발자가 직접 설정하는 속성값 , key 값이 .tsx 파일 props의 변수명 == typing/.ts 파일의 변수명 -->
                 <caption>Default value</caption>
                 <description>Sample text input</description>
             </property>
