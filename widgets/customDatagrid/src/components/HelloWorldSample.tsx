@@ -1,9 +1,8 @@
-import { CustomDatagridContainerProps, CustomDatagridPreviewProps } from "typings/CustomDatagridProps";
 
-export default function HelloWorldSample (props: CustomDatagridContainerProps | CustomDatagridPreviewProps) {
+export default function HelloWorldSample () {
     return (
         <div className="widget-hello-world">
-            Hello, {props.sampleText}
+            Hello,
         </div>
     )
 }

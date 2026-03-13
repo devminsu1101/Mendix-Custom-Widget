@@ -4,13 +4,34 @@
  * @author Mendix Widgets Framework Team
  */
 import { CSSProperties } from "react";
+import { DynamicValue, ListValue, ListAttributeValue } from "mendix";
+import { Big } from "big.js";
+
+export type ColumnWidthEnum = "autoFill" | "manual";
+
+export type AlignmentEnum = "left" | "center" | "right";
+
+export interface ColumnsType {
+    columnContent?: ListAttributeValue<string | Big | Date>;
+    header?: DynamicValue<string>;
+    columnWidth: ColumnWidthEnum;
+    alignment: AlignmentEnum;
+}
+
+export interface ColumnsPreviewType {
+    columnContent: string;
+    header: string;
+    columnWidth: ColumnWidthEnum;
+    alignment: AlignmentEnum;
+}
 
 export interface CustomDatagridContainerProps {
     name: string;
     class: string;
     style?: CSSProperties;
     tabIndex?: number;
-    sampleText: string;
+    datasource: ListValue;
+    columns: ColumnsType[];
 }
 
 export interface CustomDatagridPreviewProps {
@@ -24,5 +45,6 @@ export interface CustomDatagridPreviewProps {
     readOnly: boolean;
     renderMode: "design" | "xray" | "structure";
     translate: (text: string) => string;
-    sampleText: string;
+    datasource: {} | { caption: string } | { type: string } | null;
+    columns: ColumnsPreviewType[];
 }

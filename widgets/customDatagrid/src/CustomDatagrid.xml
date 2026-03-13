@@ -1,24 +1,83 @@
 <?xml version="1.0" encoding="utf-8"?>
 <widget 
-    id="mendix.customdatagrid.CustomDatagrid" 
-    pluginWidget="true" 
-    needsEntityContext="true" 
-    offlineCapable="true"
-    supportedPlatform="Web"
-    xmlns="http://www.mendix.com/widget/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd"
+  id="mendix.customdatagrid.CustomDatagrid" 
+  pluginWidget="true" 
+  needsEntityContext="true" 
+  offlineCapable="true"
+  supportedPlatform="Web"
+  xmlns="http://www.mendix.com/widget/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../node_modules/mendix/custom_widget.xsd"
 >
-    <name>Custom Datagrid</name> <!-- Studio Pro 위젯 도구 상자에 표시될 이름 -->
-    <description>My widget description</description>
-    <studioProCategory>Data Containers</studioProCategory> <!-- Studio Pro Toolbox 내 어느 카테고리에 위치할지 -->
-    <studioCategory>Data Containers</studioCategory>
-    <icon/>
-    <properties>
-        <propertyGroup caption="General"> <!-- 속성창에서 속성들을 그룹화하는 property group -->
-            <property key="sampleText" type="string" required="false"> <!-- 개발자가 직접 설정하는 속성값 , key 값이 .tsx 파일 props의 변수명 == typing/.ts 파일의 변수명 -->
-                <caption>Default value</caption>
-                <description>Sample text input</description>
-            </property>
-        </propertyGroup>
-    </properties>
+  <!-- <name> : Studio Pro 위젯 도구 상자에 표시될 이름 -->
+  <name>Simple Datagrid</name> 
+  <description>최소 기능만 남긴 Grid</description>
+  <!-- <studioProCategory> : Studio Pro Toolbox 내 어느 카테고리에 위치할지 -->
+  <studioProCategory>Custom Widget</studioProCategory> 
+  <icon/>
+  <properties>
+    
+    <!-- <propertyGroup> : 속성창에서 속성들을 그룹화하는 property group -->
+    <propertyGroup caption="General"> 
+
+      <propertyGroup caption="Data"> 
+
+        <!-- <property> : 개발자가 직접 설정하는 속성값 , key 값이 .tsx 파일 props의 변수명 == typing/.ts 파일의 변수명 -->
+        <property key="datasource" type="datasource" isList="true"> 
+            <caption>Data source</caption>
+            <description/>
+        </property>
+
+      </propertyGroup>
+      
+      <propertyGroup caption="Columns">
+
+        <property key="columns" type="object" isList="true">
+          <caption>Columns</caption>
+          <description/>
+          <properties>
+
+            <propertyGroup caption="Column Setup">
+              <property key="columnContent" type="attribute" dataSource="../datasource" required="false">
+              <!-- xml 에서 property 만 계층으로 취급한다. 그래서 dataSource 는 "../datasource"-->
+                <caption>Column content</caption>
+                <description/>
+                <attributeTypes>
+                  <attributeType name="String"/>
+                  <attributeType name="Integer"/>
+                  <attributeType name="DateTime"/>
+                </attributeTypes>
+              </property>
+
+              <property key="header" type="textTemplate" required="false">
+                <caption>Caption</caption>
+                <description/>
+              </property>
+
+              <property key="columnWidth" type="enumeration" defaultValue="autoFill">
+                <caption>Width</caption>
+                <description/>
+                <enumerationValues>
+                  <enumerationValue key="autoFill">Auto-fill</enumerationValue>
+                  <enumerationValue key="manual">Manual</enumerationValue>
+                </enumerationValues>
+              </property>
+
+              <property key="alignment" type="enumeration" defaultValue="left">
+                <caption>Alignment</caption>
+                <description/>
+                <enumerationValues>
+                  <enumerationValue key="left">Left</enumerationValue>
+                  <enumerationValue key="center">Center</enumerationValue>
+                  <enumerationValue key="right">Right</enumerationValue>
+                </enumerationValues>
+              </property>
+
+            </propertyGroup>
+          
+          </properties>
+        </property> 
+
+      </propertyGroup> 
+    </propertyGroup> 
+  </properties>
 </widget>

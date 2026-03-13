@@ -1,11 +1,9 @@
 import HelloWorldSample from "./components/HelloWorldSample";
-import { CustomDatagridPreviewProps } from "../typings/CustomDatagridProps";
 
-
-export default function preview (props: CustomDatagridPreviewProps) {
+export default function preview () {
 
     return (        
-        <HelloWorldSample {...props} /> 
+        <HelloWorldSample/> 
     )
 }
 
